@@ -27,11 +27,54 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Create Database Tables
 Base.metadata.create_all(bind=engine)
 
+from database import SessionLocal
 
+db = SessionLocal()
+
+if db.query(Doctor).count() == 0:
+
+    doctors = [
+
+        Doctor(
+            name="Dr Priya Sharma",
+            department="Cardiology",
+            experience=12,
+            consultation_type="In Person",
+            available_days="Mon,Tue,Fri"
+        ),
+
+        Doctor(
+            name="Dr Rajesh Kumar",
+            department="Dermatology",
+            experience=15,
+            consultation_type="Online",
+            available_days="Mon,Wed,Sat"
+        ),
+
+        Doctor(
+            name="Dr Ananya Rao",
+            department="Neurology",
+            experience=10,
+            consultation_type="In Person",
+            available_days="Tue,Thu"
+        )
+
+    ]
+
+    db.add_all(doctors)
+    db.commit()
+
+db.close()
 # ---------------------------------
 # Home
 # ---------------------------------
