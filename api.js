@@ -3,7 +3,7 @@
 // ===========================================
 
 // Change this if using ngrok
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = "https://hospital-voice-ai.onrender.com";
 // ===========================================
 // Load Doctors
 // ===========================================
