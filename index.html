@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Voice AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-hospital"></i>
+
+            <h2>Hospital AI</h2>
+
+        </div>
+
+        <ul class="menu">
+
+            <li class="active" onclick="showSection('dashboard')">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </li>
+
+            <li onclick="showSection('doctors')">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+                Doctors
+
+            </li>
+
+            <li onclick="showSection('booking')">
+
+                <i class="fa-solid fa-calendar-plus"></i>
+
+                Book Appointment
+
+            </li>
+
+            <li onclick="showSection('appointments')">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                Appointments
+
+            </li>
+
+            <li onclick="showSection('voice')">
+
+                <i class="fa-solid fa-microphone"></i>
+
+                Voice Assistant
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- ==========================
+            MAIN CONTENT
+    =========================== -->
+
+    <main class="main-content">
+
+
+
+        <!-- ======================
+                TOP NAVBAR
+        ======================= -->
+
+        <header class="navbar">
+
+            <div>
+
+                <h1>
+
+                    Hospital Voice AI Receptionist
+
+                </h1>
+
+                <p>
+
+                    Smart Healthcare Appointment System
+
+                </p>
+
+            </div>
+
+            <div class="nav-right">
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Online
+
+                </div>
+
+                <div class="profile">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>Welcome Goutham</span>
+
+                </div>
+
+            </div>
+
+        </header>
+                <!-- ===================================
+                DASHBOARD SECTION
+        ==================================== -->
+
+        <section id="dashboard" class="page active-page">
+
+            <!-- Hero Banner -->
+
+            <div class="hero">
+
+                <div class="hero-text">
+
+                    <h2>Welcome to Hospital Voice AI</h2>
+
+                    <p>
+
+                        Book appointments, check doctor availability,
+                        manage appointments and interact with our AI
+                        Receptionist seamlessly.
+
+                    </p>
+
+                    <button onclick="showSection('booking')">
+
+                        Book Appointment
+
+                    </button>
+
+                </div>
+
+                <div class="hero-image">
+
+                    <i class="fa-solid fa-hospital-user"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                    <h2 id="doctorCount">0</h2>
+
+                    <p>Total Doctors</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    <h2 id="appointmentCount">0</h2>
+
+                    <p>Appointments</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                    <h2>24/7</h2>
+
+                    <p>Available</p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <i class="fa-solid fa-microphone-lines"></i>
+
+                    <h2>Online</h2>
+
+                    <p>Voice Assistant</p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Quick Actions -->
+
+            <div class="quick-actions">
+
+                <div class="action-card"
+                    onclick="showSection('doctors')">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                    <h3>Doctors</h3>
+
+                    <p>
+
+                        View all available doctors.
+
+                    </p>
+
+                </div>
+
+                <div class="action-card"
+                    onclick="showSection('booking')">
+
+                    <i class="fa-solid fa-calendar-plus"></i>
+
+                    <h3>
+
+                        Book Appointment
+
+                    </h3>
+
+                    <p>
+
+                        Schedule your appointment instantly.
+
+                    </p>
+
+                </div>
+
+                <div class="action-card"
+                    onclick="showSection('appointments')">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    <h3>
+
+                        My Appointments
+
+                    </h3>
+
+                    <p>
+
+                        View, cancel or reschedule appointments.
+
+                    </p>
+
+                </div>
+
+                <div class="action-card"
+                    onclick="showSection('voice')">
+
+                    <i class="fa-solid fa-microphone"></i>
+
+                    <h3>
+
+                        AI Receptionist
+
+                    </h3>
+
+                    <p>
+
+                        Talk naturally with our AI assistant.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ===================================
+        DOCTORS SECTION
+=================================== -->
+
+<section id="doctors" class="page">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>Our Specialists</h2>
+
+            <p>
+                Choose from our experienced doctors.
+            </p>
+
+        </div>
+
+        <input
+            type="text"
+            id="doctorSearch"
+            placeholder="Search Doctor..."
+            onkeyup="searchDoctors()">
+
+    </div>
+
+
+    <div id="doctorGrid" class="doctor-grid">
+
+        <!-- Doctor Card 1 -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-image">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+            <h3>Dr. Priya Sharma</h3>
+
+            <span class="specialization">
+
+                Cardiologist
+
+            </span>
+
+            <p>
+
+                <i class="fa-solid fa-briefcase-medical"></i>
+
+                Experience : 15 Years
+
+            </p>
+
+            <p>
+
+                ⭐⭐⭐⭐⭐
+
+            </p>
+
+            <button onclick="getSlots(1)">
+
+                View Available Slots
+
+            </button>
+
+        </div>
+
+
+        <!-- Doctor Card 2 -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-image">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+            <h3>Dr. Rahul Kumar</h3>
+
+            <span class="specialization">
+
+                Neurologist
+
+            </span>
+
+            <p>
+
+                <i class="fa-solid fa-briefcase-medical"></i>
+
+                Experience : 12 Years
+
+            </p>
+
+            <p>
+
+                ⭐⭐⭐⭐⭐
+
+            </p>
+
+            <button onclick="getSlots(2)">
+
+                View Available Slots
+
+            </button>
+
+        </div>
+
+
+        <!-- Doctor Card 3 -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-image">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+            <h3>Dr. Sneha Reddy</h3>
+
+            <span class="specialization">
+
+                Pediatrician
+
+            </span>
+
+            <p>
+
+                <i class="fa-solid fa-briefcase-medical"></i>
+
+                Experience : 10 Years
+
+            </p>
+
+            <p>
+
+                ⭐⭐⭐⭐⭐
+
+            </p>
+
+            <button onclick="getSlots(3)">
+
+                View Available Slots
+
+            </button>
+
+        </div>
+
+
+        <!-- Doctor Card 4 -->
+
+        <div class="doctor-card">
+
+            <div class="doctor-image">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+            <h3>Dr. Arjun Patel</h3>
+
+            <span class="specialization">
+
+                Orthopedic Surgeon
+
+            </span>
+
+            <p>
+
+                <i class="fa-solid fa-briefcase-medical"></i>
+
+                Experience : 18 Years
+
+            </p>
+
+            <p>
+
+                ⭐⭐⭐⭐⭐
+
+            </p>
+
+            <button onclick="getSlots(4)">
+
+                View Available Slots
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================
+        BOOK APPOINTMENT SECTION
+=================================== -->
+
+<section id="booking" class="page">
+
+    <div class="booking-container">
+
+        <div class="booking-left">
+
+            <h2>
+
+                Book an Appointment
+
+            </h2>
+
+            <p>
+
+                Fill in the details below to schedule your appointment with one of our specialists.
+
+            </p>
+
+            <img src="images/doctor.png"
+                 alt="Doctor">
+
+        </div>
+
+        <div class="booking-right">
+
+            <form id="bookingForm">
+
+                <div class="input-group">
+
+                    <label>
+
+                        Patient Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="patientName"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Select Doctor
+
+                    </label>
+
+                    <select id="doctorSelect">
+
+                        <option value="">
+
+                            Select Doctor
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Appointment Date
+
+                    </label>
+
+                    <input
+                        type="date"
+                        id="appointmentDate"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        Available Slots
+
+                    </label>
+
+                    <select id="slotSelect">
+
+                        <option>
+
+                            Select Slot
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="book-btn"
+                    onclick="bookAppointment()">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Book Appointment
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================
+        MY APPOINTMENTS SECTION
+=================================== -->
+
+<section id="appointments" class="page">
+
+    <div class="appointment-header">
+
+        <div>
+
+            <h2>
+
+                My Appointments
+
+            </h2>
+
+            <p>
+
+                View, cancel and reschedule your appointments.
+
+            </p>
+
+        </div>
+
+        <input
+            type="text"
+            id="appointmentSearch"
+            placeholder="Search Appointment..."
+            onkeyup="searchAppointments()">
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Patient</th>
+
+                    <th>Doctor</th>
+
+                    <th>Date</th>
+
+                    <th>Time</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="appointmentTable">
+
+                <!-- Appointments Loaded Here -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<!-- ===================================
+        VOICE ASSISTANT
+=================================== -->
+
+<section id="voice" class="page">
+
+    <div class="voice-container">
+
+        <div class="voice-card">
+
+            <div class="voice-icon">
+
+                <i class="fa-solid fa-microphone-lines"></i>
+
+            </div>
+
+            <h2>
+
+                AI Voice Receptionist
+
+            </h2>
+
+            <p>
+
+                Talk naturally with our AI Assistant to:
+
+            </p>
+
+            <ul>
+
+                <li>✔ Book Appointments</li>
+
+                <li>✔ Cancel Appointments</li>
+
+                <li>✔ Reschedule Appointments</li>
+
+                <li>✔ Check Available Slots</li>
+
+                <li>✔ Ask Doctor Information</li>
+
+            </ul>
+
+            <button id="voiceButton">
+
+                🎤 Start Talking
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================
+        FOOTER
+=================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+
+                Hospital Voice AI
+
+            </h3>
+
+            <p>
+
+                Smart AI Receptionist powered by FastAPI and Vapi.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <p>
+
+                © 2026 Hospital Voice AI
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/index.umd.js"></script>
+
+<script src="api.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+</body>
+
+</html>
