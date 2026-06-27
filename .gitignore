@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Database
+hospital.db
+
+# VS Code
+.vscode/
+
+# Python virtual environment
+venv/
+.venv/
